@@ -9,7 +9,7 @@
 	<url>http://iceproxy.io</url>
 
     <parent>
-        <groupId>io.iceproxy.ep</groupId>
+        <groupId>io.iceproxy</groupId>
         <artifactId>iceproxy-parent</artifactId>
         <version>1.0.0</version>
         <relativePath>../pom.xml</relativePath>

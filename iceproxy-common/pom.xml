@@ -5,11 +5,12 @@
 	<artifactId>iceproxy-common</artifactId>
 	<packaging>jar</packaging>
 	<description>iceproxy server common</description>
-	<name>iceproxy-common</name>
+
+    <name>iceproxy-common</name>
 	<url>http://iceproxy.io</url>
 
     <parent>
-        <groupId>io.iceproxy.ep</groupId>
+        <groupId>io.iceproxy</groupId>
         <artifactId>iceproxy-parent</artifactId>
         <version>1.0.0</version>
         <relativePath>../pom.xml</relativePath>
@@ -20,5 +21,102 @@
        <app.encoding>UTF-8</app.encoding>
        <maven.build.timestamp.format>yyyy-MM-dd.HH:mm:ss</maven.build.timestamp.format>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.zeroc.ice</groupId>
+            <artifactId>ice</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.2.6.RELEASE</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                    <compilerArguments>
+                        <verbose />
+                        <bootclasspath>${java.home}\lib\rt.jar;${java.home}\lib\jce.jar</bootclasspath>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+    <repositories>
+        <repository>
+            <id>spring-milestone</id>
+            <url>http://repo.spring.io/libs-milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>nexus</id>
+            <name>local private nexus</name>
+            <url>http://maven.oschina.net/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>nexus-osc-thirdparty</id>
+            <name>Nexus osc thirdparty</name>
+            <url>http://maven.oschina.net/content/repositories/thirdparty/</url>
+        </repository>
+        <!--<repository>-->
+        <!--<id>releases</id>-->
+        <!--<name>Internal Releases</name>-->
+        <!--<url>http://nexus.mycat.io/content/repositories/releases</url>-->
+        <!--</repository>-->
+        <!--<repository>-->
+        <!--<id>snapshots</id>-->
+        <!--<name>Internal Snapshots</name>-->
+        <!--<url>http://nexus.mycat.io/content/repositories/snapshots</url>-->
+        <!--</repository>-->
+
+    </repositories>
+
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-milestone</id>
+            <url>http://repo.spring.io/libs-milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>nexus</id>
+            <name>local private nexus</name>
+            <url>http://maven.oschina.net/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
 </project>
